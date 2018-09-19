@@ -1,0 +1,3 @@
+{% for obj in object_list %}
+  <h1><a href="{% url 'product_detail' obj.pk %}">{{ obj.title }}</a></h1>
+{% endfor %}
