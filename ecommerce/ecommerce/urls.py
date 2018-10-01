@@ -21,11 +21,11 @@ from .views import home_page, about_page, contact_page, login_page, register_pag
 
 
 urlpatterns = [
-    url(r'^$', home_page),
-    url(r'^about/$', about_page),
-    url(r'^contact/$', contact_page),
-    url(r'^login/$', login_page),
-    url(r'^register/$', register_page),
+    url(r'^$', home_page, name='homepage'),
+    url(r'^about/$', about_page, name='about-page'),
+    url(r'^contact/$', contact_page, name='contact-page'),
+    url(r'^login/$', login_page, name='login-page'),
+    url(r'^register/$', register_page, name='register-page'),
     url(r'^products/', include('products.urls'), name='products'),
     url(r'^admin/', admin.site.urls),
 ]

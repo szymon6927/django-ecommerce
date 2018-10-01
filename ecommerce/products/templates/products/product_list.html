@@ -1,3 +1,23 @@
-{% for obj in object_list %}
-  <h1><a href="{% url 'product-slug' obj.slug %}">{{ obj.title }}</a></h1>
-{% endfor %}
+{% extends 'base.html' %}
+{% block title %}Products list{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      {% for obj in object_list %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            {% if obj.image %}
+              <img class="card-img-top" src="{{ obj.image.url }}" alt="{{ obj.title }} image">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ obj.title }}</h5>
+              <p class="card-text">{{ obj.description }}</p>
+              <a href="{% url 'product-slug' obj.slug %}" class="btn btn-primary">View product</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

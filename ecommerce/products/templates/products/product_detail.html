@@ -1,6 +1,11 @@
-<p>Product detail</p>
-<p>{{ object.title }}</p>
-<p>{{ object.description }}</p>
-{% if object.image %}
-  <p><img class="img-fluid" src="{{ object.image.url }}"/></p>
-{% endif %}
+{% extends 'base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+  <p>Product detail</p>
+  <p>{{ object.title }}</p>
+  <p>{{ object.description }}</p>
+  {% if object.image %}
+    <p><img class="img-fluid" src="{{ object.image.url }}"/></p>
+  {% endif %}
+{% endblock %}
