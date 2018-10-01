@@ -1,4 +1,6 @@
 <p>Product detail</p>
 <p>{{ object.title }}</p>
 <p>{{ object.description }}</p>
-<p><img class="img-fluid" src="{{ object.image.url }}"/></p>
+{% if object.image %}
+  <p><img class="img-fluid" src="{{ object.image.url }}"/></p>
+{% endif %}
