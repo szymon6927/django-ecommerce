@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^login/$', login_page, name='login-page'),
     url(r'^register/$', register_page, name='register-page'),
     url(r'^products/', include('products.urls'), name='products'),
+    url(r'^search/', include('search.urls'), name='search'),
     url(r'^admin/', admin.site.urls),
 ]
 
