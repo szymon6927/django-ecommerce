@@ -2,6 +2,8 @@
 {% url 'about-page' as about %}
 {% url 'contact-page' as contact %}
 {% url 'products' as products %}
+{% url 'login-page' as login %}
+{% url 'register-page' as register %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Django e-commerce</a>
@@ -20,6 +22,22 @@
       <li class="nav-item {% if request.get_full_path == contact %}active{% endif %}">
         <a class="nav-link" href="{% url 'contact-page' %}">Contact</a>
       </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout ({{ request.user.username }})</a>
+        </li>
+      {% else %}
+        <li class="nav-item {% if request.get_full_path == register %}active{% endif %}">
+          <a class="nav-link" href="{% url 'register-page' %}">Register</a>
+        </li>
+        <li class="nav-item {% if request.get_full_path == login %}active{% endif %}">
+          <a class="nav-link" href="{% url 'login-page' %}">Login</a>
+        </li>
+      {% endif %}
     </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
 </nav>

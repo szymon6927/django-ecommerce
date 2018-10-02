@@ -4,7 +4,8 @@
 {% block content %}
   <p>Product detail</p>
   <p>{{ object.title }}</p>
-  <p>{{ object.description }}</p>
+  <p>Created: {{ object.created|date:"d/m/Y" }},updated: {{ object.updated|date:"d/m/Y"  }}</p>
+  <p>{{ object.description|linebreaks }}</p>
   {% if object.image %}
     <p><img class="img-fluid" src="{{ object.image.url }}"/></p>
   {% endif %}

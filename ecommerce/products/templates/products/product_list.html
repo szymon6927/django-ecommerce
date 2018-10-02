@@ -12,7 +12,7 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ obj.title }}</h5>
-              <p class="card-text">{{ obj.description }}</p>
+              <p class="card-text">{{ obj.description|truncatechars:10 }}</p>
               <a href="{% url 'product-slug' obj.slug %}" class="btn btn-primary">View product</a>
             </div>
           </div>
